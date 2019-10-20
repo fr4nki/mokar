@@ -6,4 +6,4 @@ const { getStructure } = require('./utils/readFiles');
 const { paths } = require('./mokar');
 
 const app = express();
-const files = getStructure(path.resolve(__dirname), { "/": "data" });
+const files = getStructure(path.resolve(__dirname), paths);
