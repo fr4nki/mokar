@@ -35,7 +35,6 @@ const getQuery = (endpointArray) => {
         return currentChunk
     })
 
-
     return {endpoint, query: queryArray, error}
 }
 
@@ -96,10 +95,6 @@ const getMethod = endpointArray => {
     return { method: currentMethod, endpoint: endpointReversed }
 }
 
-const isRegexp = (regexp) => {
-    const r = new RegExp(`/${regexp}/g`)
-    return Object.prototype.toString.call(r) === '[object RegExp]'
-}
 
 const filterList = (type) => (
     {
@@ -156,21 +151,23 @@ const getFilters = (endpointArray) => {
                 log('Its seems youre passed wrong filter. Check mans')
             }
 
-            console.log(chunk, hasDelimeter)
-
             return `(${filterList(type)}${limit})`
         }
 
         return chunk
     })
 
-    console.log(endpoint)
-
     return { endpoint, error }
 }
 
+const getNormalizedEndpoint = (endpointArray) => {
+    const separator = '/'
+    const endpoint = separator + endpointArray.join(separator)
+    return { endpoint }
+}
 
-const tree = function(dir, prefix, pre) {
+
+const getTree = function(dir, prefix, pre) {
     let results = [];
     const list = fs.readdirSync(dir);
 
@@ -179,10 +176,11 @@ const tree = function(dir, prefix, pre) {
         const stat = fs.statSync(file);
 
         if (stat && stat.isDirectory()) {
-            results = results.concat(tree(file, prefix, pre + '/' + filename));
+            results = results.concat(getTree(file, prefix, pre + '/' + filename));
         } else {
             const ext = path.extname(file)
             const fileWOExt = filename.replace(ext, '')
+
             // TODO: Add check for Win32 and this should be tested
             const cleanFilename = fileWOExt.replace(/:/g, '/')
             const endpointRaw = (prefix + pre + '/' + cleanFilename).split('/').filter(txt => txt.trim() !== '')
@@ -191,18 +189,14 @@ const tree = function(dir, prefix, pre) {
 
             const { endpoint: endpointMethod, method } = getMethod(endpointRaw)
             const { endpoint: endpointQuery, query, error: queryError } = getQuery(endpointMethod)
-            const { endpoint, error: filterError } = getFilters(endpointQuery)
-
-            // console.log(pre)
-            // console.log(ep.endpoint.join('/'))
-            // console.log(endpoint)
-            // console.log(cleanFilename)
+            const { endpoint: endpointFitered, filterError } = getFilters(endpointQuery)
+            const { endpoint } = getNormalizedEndpoint(endpointFitered)
 
             results.push({
                 error: [filterError, queryError],
                 contentType,
-                query: JSON.stringify(query),
-                endpoint: JSON.stringify(endpoint),
+                query,
+                endpoint,
                 file,
                 method,
             });
@@ -214,13 +208,17 @@ const tree = function(dir, prefix, pre) {
 const getStructure = (rootPath, from) => {
     const keys = Object.keys(from)
 
-    const arr = keys.map((prefix) => {
-        const path = rootPath + '/' + from[prefix]
+    const arr = keys.map((prefix) => getTree(rootPath + '/' + from[prefix], prefix, ''))
 
-        return tree(path, prefix, '')
+    const comparator = (a, b) => {
+        if (a.endpoint < b.endpoint) return -1;
+        if (a.endpoint > b.endpoint) return 1;
+        return 0;
+    }
+
+    return arr.map(items => {
+        return items.sort(comparator)
     })
-
-    console.log(arr)
 }
 
 module.exports = {

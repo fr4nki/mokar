@@ -1,9 +1,14 @@
 {
-  "paths": {
+  "mocks": {
     "/api/v1/drive": "data",
     "/api/v1/modules": "mocks"
   },
   "timeout": 500,
+  "port": 9999,
+  "template": {
+    "method": ["[", "]"],
+    "filter": ["{", "}"]
+  },
   "response": {
     "headers": {
     }
