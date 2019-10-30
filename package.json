@@ -1,15 +1,19 @@
 {
-  "name": "rest_mock",
+  "name": "mokar",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/mokar.js",
+  "bin": {
+    "mokar": "bin/mokar.js"
+  },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "npm run serve",
+    "serve": "nodemon --watch 'lib/**/*.js' lib/mokar.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "nodemon": "^1.19.2"
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.4"
   }
 }
