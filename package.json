@@ -6,14 +6,8 @@
   "bin": {
     "mokar": "bin/mokar.js"
   },
-  "scripts": {
-    "start": "npm run serve",
-    "serve": "nodemon --watch 'lib/**/*.js' lib/mokar.js"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {},
-  "devDependencies": {
-    "nodemon": "^1.19.4"
-  }
+  "devDependencies": {}
 }

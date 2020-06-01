@@ -4,4 +4,4 @@ node_modules/
 mocks/data/
 mocks/
 tmp/
-index.js.bak
+*.bak
