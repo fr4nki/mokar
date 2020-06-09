@@ -7,8 +7,7 @@
     "delay": 50,
     //"followSymlinks": true,
     //"persistResponse": false,
-    //"saveExtensions": false,
-    "skipDotFiles": true,
+    "saveExtensions": false,
     "mocks": [
         {
             "path": "relative/path/to/mockfiles",
