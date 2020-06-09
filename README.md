@@ -5,9 +5,10 @@
 {
     "port": 9000, 
     "delay": 50,
-    //"followSymlinks": false,
+    //"followSymlinks": true,
     //"persistResponse": false,
-    //"useExtensions": false,
+    //"saveExtensions": false,
+    "skipDotFiles": true,
     "mocks": [
         {
             "path": "relative/path/to/mockfiles",
@@ -37,9 +38,14 @@
 +{string},
 +{number#4},
 +{string#5-10},
-{[0-9]+}
+{regexp}
 
 
 help
 run
 
+TODO:
+- templates in dir names
+- follow symlinks
+- persist response
+- save extension
