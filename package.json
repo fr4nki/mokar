@@ -7,7 +7,7 @@
     "mokar": "bin/mokar.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {}
 }
