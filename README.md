@@ -63,18 +63,18 @@ Default config:
 }
 ```
 
-- **`port`** _Number_. Default `9000`.
+- **`port`** Type _Number_. Default `9000`.
     Port to start server from,
 
-- **`delay`** _Number_. Default `50`.
+- **`delay`** Type _Number_. Default `50`.
     Delay in milliseconds between request and response,
 
-- **`saveExtension`**. _Boolean_. Default `false`.
+- **`saveExtension`**. Type _Boolean_. Default `false`.
     Endpoints create with extensions of the files.
     
     Example: map file `/mocks/foo.json` to endpoint `localhost:9000/foo`. If passed `true` endpoint will be `localhost:9000/foo.json`.
 
-- **`mocks`**. _Array_. Default `[ { "path": "mocks", "prefix": "/' } ]`.
+- **`mocks`**. Type _Array_. Default `[ { "path": "mocks", "prefix": "/' } ]`.
 
     That means Mokar read the file tree from the passed path (`mocks`) and map to `/` endpoints. 
     

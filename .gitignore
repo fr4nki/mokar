@@ -5,3 +5,6 @@ mocks/data/
 mocks/
 tmp/
 *.bak
+
+.nyc_output
+coverage
