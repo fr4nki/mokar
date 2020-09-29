@@ -1,7 +1,7 @@
 {
     "name": "mokar",
     "version": "1.0.0",
-    "description": "Simple, lightweight and zero-dependency mock server which provide a mapping between mock endpoints and your file tree.",
+    "description": "Mokar a simple, lightweight, and zero-dependency mock tool for prototyping and development",
     "main": "lib/mokar.js",
     "bin": {
         "mokar": "bin/mokar.js"
