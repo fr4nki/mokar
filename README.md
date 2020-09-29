@@ -134,4 +134,4 @@ In this case Mokar will generate 4 endpoints:
 
 ## Thanks
 
-- Ivan Stepanenko for amazing logo
+- [Ivan Stepanenko](https://www.facebook.com/istepanenko) for amazing logo
