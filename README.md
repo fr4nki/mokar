@@ -1,4 +1,4 @@
-<img src="https://github.com/fr4nki/mokar/tree/master/.github/logo.svg" alt="Awesome Mokar logo"/>
+<img src="https://raw.githubusercontent.com/fr4nki/mokar/master/.github/logo.svg" alt="Awesome Mokar logo" />
 
 # Mokar
 Mokar a simple, lightweight, and zero-dependency mock tool for prototyping and development. It provides a mapping between mock endpoints and your file tree.
