@@ -17,7 +17,7 @@ Mokar provides two CLI actions - `help` and `run`.
 
 - `help` or just `mokar`. It shows a list of all commands with description.
 
-- `run`. Run Mokar with passed CLI parameters and read `package.json` and `.mokarrc` to make config.
+- `run`. Run Mokar with passed CLI parameters and read `package.json` and `.mokarrc` to make config and start a mock server.
 
     List of available arguments:
 
