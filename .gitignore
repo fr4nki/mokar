@@ -1,0 +1,9 @@
+/node_modules
+/.idea
+
+/mocks
+/tmp
+*.bak
+
+.nyc_output
+coverage

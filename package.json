@@ -1,0 +1,38 @@
+{
+    "name": "mokar",
+    "version": "1.0.0",
+    "description": "Simple, lightweight and zero-dependency mock server which provide a mapping between mock endpoints and your file tree.",
+    "main": "lib/mokar.js",
+    "bin": {
+        "mokar": "bin/mokar.js"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/core": "^7.10.2",
+        "@babel/preset-env": "^7.10.2",
+        "babel-jest": "^26.0.1",
+        "jest": "^26.0.1"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "jest --forceExit"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fr4nki/mokar.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fr4nki/mokar/issues"
+    },
+    "homepage": "https://github.com/fr4nki/mokar"
+}
